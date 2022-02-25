@@ -1,0 +1,24 @@
+{
+    "image": "ghcr.io/caentainer/caentainer-gcc:6.2.0",
+    "remoteUser": "root",
+    "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.cpptools",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "ms-python.python",
+    ],
+    "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+    },
+    "runArgs": [
+        "--pull",
+        "always",
+        "--privileged",
+        "--hostname",
+        "🐳CAENTainer-281",
+    ],
+    "initializeCommand": "docker image prune -f",
+    "mounts": [
+        "source=eecs281_caentainer_persisted,target=/root/.caentainer_persisted,type=volume",
+    ]
+}

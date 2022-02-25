@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Args that are passed to your program, I/O redirection are also done here.
+            // Usage example:  "args": ["--help", "<", "input.txt", ">", "output.txt"],
+            // You do NOT need xcode_redirect.hpp in devcontainer.
+            //
+            "args": [],
+            //
+            // WARNING: You should not need to change any of following lines.
+            // Make sure you know what you are doing before changing them.
+            "program": "${workspaceFolder}/EXECUTABLE_debug",
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "build debug",
+            "postDebugTask": "clean workspace",
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+    ]
+}

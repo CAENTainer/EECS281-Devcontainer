@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "CAENTainer",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "compilerPath": "/usr/um/gcc-6.2.0/bin/g++",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

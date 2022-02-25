@@ -11,6 +11,7 @@
         "terminal.integrated.defaultProfile.linux": "zsh",
     },
     "runArgs": [
+        "--rm",
         "--pull",
         "always",
         "--privileged",

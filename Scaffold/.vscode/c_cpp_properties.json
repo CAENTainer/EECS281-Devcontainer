@@ -7,8 +7,7 @@
             ],
             "compilerPath": "/usr/um/gcc-6.2.0/bin/g++",
             "cStandard": "c11",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "linux-gcc-x64"
+            "cppStandard": "c++17"
         }
     ],
     "version": 4

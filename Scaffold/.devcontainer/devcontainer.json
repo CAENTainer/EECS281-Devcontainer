@@ -19,6 +19,7 @@
         "🐳CAENTainer-281",
     ],
     "initializeCommand": "docker image prune -f",
+    "postCreateCommand": "wget -q https://raw.githubusercontent.com/CAENTainer/EECS281-Devcontainer/main/vscarg -O /bin/vscarg && chmod +x /bin/vscarg",
     "mounts": [
         "source=eecs281_caentainer_persisted,target=/root/.caentainer_persisted,type=volume",
     ]

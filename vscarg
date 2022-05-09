@@ -1,0 +1,59 @@
+#!/usr/bin/python3
+
+import json
+import readline
+
+
+def load_config() -> dict:
+    with open(".vscode/launch.json", "r") as f:
+        # Read a json file with c-style comment line starting with // ignored
+        data = ""
+        for line in f:
+            line = line.strip()
+            if line.startswith("//"):
+                continue
+            data += line
+
+        data = data.replace("},]", "}]")
+        return json.loads(data)
+
+
+def write_config(config: dict):
+    with open(".vscode/launch.json", "w") as f:
+        f.write(json.dumps(config, indent=4))
+
+
+def main():
+    print("===== EECS281 VSCode Debugger Setup Tool =====")
+    try:
+        config = load_config()
+    except FileNotFoundError:
+        print("No launch.json found, are you in a vscode workspace?")
+        return 1
+
+    executable = config["configurations"][0]["program"].replace(
+        "${workspaceFolder}", "."
+    )
+    args = config["configurations"][0]["args"]
+    print("Debugger runs the following command currently: ", end="")
+    print(f"{executable} \033[94m{' '.join(args)}\033[0m")
+    print(
+        "Enter new arguments as how you would type them in the terminal (the \033[94mblue\033[0m part above)"
+    )
+    print("or press enter to keep the current ones: ")
+    args = [arg for arg in input().split(" ") if len(arg) > 0]
+
+    if len(args) == 0:
+        print("Keeping current arguments, exiting...")
+        return 0
+
+    config["configurations"][0]["args"] = args
+    write_config(config)
+
+    print("Arguments updated to: ", end="")
+    print(f"{executable} \33[33m{' '.join(args)}\33[0m")
+    print("You may run debugger now :-)")
+
+
+if __name__ == "__main__":
+    main()

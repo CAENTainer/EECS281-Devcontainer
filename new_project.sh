@@ -87,9 +87,9 @@ get_scaffold() {
 
 open_project() {
   if command_exists devcontainer; then
-    devcontainer open ${PROJECT_DIR}
+    devcontainer open "${PROJECT_DIR}"
   elif command_exists code; then
-    code ${PROJECT_DIR}
+    code "${PROJECT_DIR}"
   fi
 }
 
@@ -153,7 +153,7 @@ main() {
   config_workspace
 
   print_info "Moving files to workspace..."
-  mv ${TMP_DIR}/Scaffold ${PROJECT_DIR}
+  mv ${TMP_DIR}/Scaffold "${PROJECT_DIR}"
 
   print_success "Setup complete 🎉 Happy coding!"
   open_project

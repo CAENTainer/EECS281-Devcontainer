@@ -12,13 +12,14 @@
     },
     "runArgs": [
         "--rm",
-        "--pull",
-        "always",
+//         "--pull",
+//         "always",
         "--privileged",
         "--hostname",
         "🐳CAENTainer-281",
     ],
-    "initializeCommand": "docker image prune -f",
+//     "initializeCommand": "docker image prune -f",
+    "initializeCommand": "docker pull ghcr.io/caentainer/caentainer-gcc:6.2.0",
     "postCreateCommand": "wget -q https://raw.githubusercontent.com/CAENTainer/EECS281-Devcontainer/main/vscarg -O /bin/vscarg && chmod +x /bin/vscarg",
     "mounts": [
         "source=eecs281_caentainer_persisted,target=/root/.caentainer_persisted,type=volume",

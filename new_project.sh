@@ -78,7 +78,7 @@ get_scaffold() {
   fi
   tar -xzf ${TMP_DIR}/scaffold.tar.gz --strip-components=1 -C ${TMP_DIR}
 
-  curl -fsSL "https://gitlab.umich.edu/eecs281/makefile/-/raw/main/Makefile" -o ${TMP_DIR}/Scaffold/Makefile
+  curl -fsSL "https://raw.githubusercontent.com/eecs281staff/Makefile/main/Makefile" -o ${TMP_DIR}/Scaffold/Makefile
   if [ $? -ne 0 ]; then
     print_error "Failed to download 281 Makefile template, please try again."
     exit 1
